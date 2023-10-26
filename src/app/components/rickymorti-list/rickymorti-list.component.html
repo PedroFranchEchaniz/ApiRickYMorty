@@ -1,0 +1,20 @@
+<div class="row">
+    <app-rickymorti-detail *ngFor="let p of personajeList" [personaje]="p"
+        (personajeClicked)="open($event, personajeModal)" class="col-3"></app-rickymorti-detail>
+</div>
+
+
+<ng-template #personajeModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{name}}</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-6"><img [src]="image" width="200px"></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
