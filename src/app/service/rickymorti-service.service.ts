@@ -17,4 +17,8 @@ export class RickymortiServiceService {
   findById(id: number): Observable<Personaje> {
     return this.http.get<Personaje>(`https://rickandmortyapi.com/api/character/${id}`);
   }
+
+  getPag(pag: number): Observable<RickymortiResponse> {
+    return this.http.get<RickymortiResponse>(`https://rickandmortyapi.com/api/character/?page=${pag}`);
+  }
 }

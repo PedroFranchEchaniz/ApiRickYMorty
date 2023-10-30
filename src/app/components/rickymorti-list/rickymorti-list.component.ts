@@ -16,6 +16,8 @@ export class RickymortiListComponent implements OnInit {
   species = "";
   image = "";
 
+  page = 1;
+
 
   constructor(private personajeService: RickymortiServiceService, private modalService: NgbModal) { }
 
@@ -35,4 +37,11 @@ export class RickymortiListComponent implements OnInit {
       scrollable: true
     });
   }
+
+  paginar() {
+    this.personajeService.getPag(this.page).subscribe(resp => {
+      this.personajeList = resp.results;
+    })
+  }
+
 }
